@@ -81,8 +81,15 @@ const AddNews = (props: Props) => {
     const handleOk = async () => {
         setLoading(true);
 
-        await CreatePost(title, ckEdittorData, imageUrl);
+        const result: any = await CreatePost(title, ckEdittorData, imageUrl);
         
+        if(result.status === 201){
+            alert("Ok");
+        }
+        else{
+            alert("Error");
+        }
+
         setLoading(true);
     }
 
